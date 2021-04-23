@@ -14,7 +14,7 @@ exports.run = (client, message, args, level) => {
             .setImage(msgURL)
             .setFooter("UUID = " + privateSession);
 
-        client.channels.cache.get('833429455304392755').send(privateEmbed)
+        client.channels.cache.get('831298120095891488').send(privateEmbed)
             .then(message.delete());
 
     } else {

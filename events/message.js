@@ -7,6 +7,12 @@ module.exports = async (client, message) => {
   // and not get into a spam loop (we call that "botception").
   if (message.author.bot) return;
 
+  // Check for attachments, pin attachments if desired.
+  if (message.attachments.size > 0 && client.channels.cache.get("798828238989295619")){
+    message.pin({reason: 'has image'})
+        .then(console.log("Message Has Attachment"))
+        .catch(console.error)
+  }
   // Grab the settings for this server from Enmap.
   // If there is no guild, get default conf (DMs)
   const settings = message.settings = client.getSettings(message.guild);
